@@ -34,14 +34,14 @@ export class ProductsService {
     }
   }
 
-  findAll({ limit = 10, offset = 0 }: PaginationDto) {
+  findAll({ limit = 10, offset = 0 }: PaginationDto): Promise<Product[]> {
     return this.productRepository.find({
       take: limit,
       skip: offset,
     });
   }
 
-  async findOne(searchTerm: string) {
+  async findOne(searchTerm: string): Promise<Product> {
     let product: Product;
 
     if (isUUID(searchTerm)) {
@@ -62,7 +62,10 @@ export class ProductsService {
     return product;
   }
 
-  async update(id: string, updateProductDto: UpdateProductDto) {
+  async update(
+    id: string,
+    updateProductDto: UpdateProductDto,
+  ): Promise<Product> {
     const product = await this.productRepository.preload({
       id,
       ...updateProductDto,
@@ -80,12 +83,12 @@ export class ProductsService {
     }
   }
 
-  async remove(id: string) {
+  async remove(id: string): Promise<void> {
     const product = await this.findOne(id);
     await this.productRepository.remove(product);
   }
 
-  #handleDBExceptions(error: any) {
+  #handleDBExceptions(error: any): never {
     if (error.code === '23505') throw new BadRequestException(error.detail);
 
     this.#logger.error(error);
