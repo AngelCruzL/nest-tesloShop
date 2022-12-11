@@ -18,20 +18,26 @@ A simple nest API.
 1. Clone the repository
 2. Install dependencies with:
 
-```sh
-yarn install
-```
+   ```sh
+   yarn install
+   ```
 
 3. Up the database with:
 
-```sh
-docker-compose up -d
-```
+   ```sh
+   docker-compose up -d
+   ```
 
-4. Create a `.env` file with the same variables as `.env.example` file
+4. Execute the seed to populate the database with:
 
-5. Run the application with:
+   ```sh
+   http://localhost:3000/api/seed
+   ```
 
-```sh
-yarn start:dev
-```
+5. Create a `.env` file with the same variables as `.env.example` file
+
+6. Run the application with:
+
+   ```sh
+   yarn start:dev
+   ```
