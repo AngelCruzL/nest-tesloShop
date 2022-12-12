@@ -11,7 +11,7 @@ import { IncomingHttpHeaders } from 'http';
 import { ValidRoles } from './interfaces/valid-roles.interface';
 
 import { AuthService } from './auth.service';
-import { GetUser, RawHeaders, RoleProtected } from './decorators';
+import { Auth, GetUser, RawHeaders, RoleProtected } from './decorators';
 import { CreateUserDto, LoginUserDto } from './dto';
 import { User } from './entities/user.entity';
 import { UserRoleGuard } from './guards/user-role.guard';
@@ -53,6 +53,16 @@ export class AuthController {
   @RoleProtected(ValidRoles.SUPER_USER, ValidRoles.ADMIN)
   @UseGuards(AuthGuard(), UserRoleGuard)
   privateRoute2(@GetUser() user: User) {
+    return {
+      ok: true,
+      message: 'This route is private',
+      user,
+    };
+  }
+
+  @Get('private3')
+  @Auth(ValidRoles.SUPER_USER, ValidRoles.ADMIN)
+  privateRoute3(@GetUser() user: User) {
     return {
       ok: true,
       message: 'This route is private',
