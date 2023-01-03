@@ -14,6 +14,7 @@ import { SeedModule } from './seed/seed.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
+      envFilePath: [`${process.env.STAGE}.env`],
       validationSchema: configValidationSchema,
     }),
     TypeOrmModule.forRootAsync({

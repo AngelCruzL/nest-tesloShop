@@ -16,13 +16,16 @@ Built with NestJS, Typescript and PostgreSQL. Dockerized with different environm
 
 ## Requirements
 
-- Have installed [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/)
+- [NodeJS](https://nodejs.org/en/download/)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install)
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Setup
 
 1. Clone the repository
 
-2. Create an `.env` file with the same variables as `.env.example`
+2. Create a `dev.env` file with the same variables as `.env.example`
 
 3. Up the database and backend with:
 
@@ -36,4 +39,10 @@ Built with NestJS, Typescript and PostgreSQL. Dockerized with different environm
    http://localhost:3000/api/seed
    ```
 
-__Note:__ If you want to use the database with PgAdmin, go to `http://localhost:5050` and introduce the credentials assigned in the `.env` file in the `ADMIN_EMAIL` and `ADMIN_PASS` variables.
+**Note:** If you want to use the database with PgAdmin, go to `http://localhost:5050` and introduce the credentials assigned in the `.env` file in the `ADMIN_EMAIL` and `ADMIN_PASS` variables.
+
+## Usage
+
+### Endpoints
+
+You can find the API documentation in `http://localhost:3000/api/`

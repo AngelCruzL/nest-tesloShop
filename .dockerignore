@@ -1,8 +1,9 @@
 .git/
 .vscode/
 dist/
-docker/
 node_modules/
 postgres/
 .gitignore
+docker-compose.yml
+Dockerfile
 *.md
