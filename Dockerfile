@@ -1,9 +1,7 @@
 # syntax=docker/dockerfile:1
 
 FROM node:18-alpine AS base
-
 WORKDIR /app
-
 COPY [ "package.json", "yarn.lock*", "./" ]
 
 FROM base AS dev

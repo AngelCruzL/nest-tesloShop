@@ -1,7 +1,8 @@
 .git/
 .vscode/
+dist/
+docker/
 node_modules/
 postgres/
-.gitingore
-Dockerfile
+.gitignore
 *.md

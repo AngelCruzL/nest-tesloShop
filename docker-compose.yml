@@ -2,15 +2,15 @@ version: '3'
 
 services:
   db:
+    container_name: teslodb
     image: postgres:14.3
     restart: always
     ports:
-      - 5432:5432
+      - ${DB_PORT}:${DB_PORT}
     environment:
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_DB: ${DB_NAME}
-    container_name: teslodb
     volumes:
       - ./postgres:/var/lib/postgresql/data
 
