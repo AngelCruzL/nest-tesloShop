@@ -51,3 +51,14 @@ You can find the API documentation in `http://localhost:3000/api/`
 ## Deployment
 
 You can see the project deployed in [Teslo API](https://teslo-shop.angelcruzl.dev/api/)
+
+To deploy the project in production, you can use the following command:
+
+```sh
+   yarn docker-compose:prod
+```
+
+This will build the project and create the image for the backend without the database. To execute this command you need
+to have the `prod.env` file with the same variables as `.env.example`.
+
+After that, you can push the docker image to your docker registry and deploy it in your server.
