@@ -17,7 +17,6 @@ export class PaginationDto {
     description: 'How many results to skip',
   })
   @IsOptional()
-  @IsPositive()
   @Min(0)
   @Type(() => Number)
   offset?: number;
